@@ -1,3 +1,28 @@
+from langgraph.graph import StateGraph, END
+from .schema import AgentState
+from .nodes import (
+    topic_analysis_node,
+    search_strategy_node,
+    resource_discovery_node,
+    metadata_extraction_node,
+    validation_node,
+    deduplication_node,
+    evaluation_node,
+    ranking_node,
+    categorization_node,
+    sequence_node,
+    persistence_node,
+    embedding_node,
+)
+initial_state = {
+    "domain": "Languages",
+    "course": "French",
+    "topic": "Greetings",
+    "level": "A1"
+}
+
+result = app.invoke(initial_state)
+print("Execution finished successfully!")
 # FIXED CODE EXAMPLE
 workflow = StateGraph(AgentState)
 
