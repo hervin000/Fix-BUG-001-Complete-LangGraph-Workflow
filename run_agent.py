@@ -1,5 +1,5 @@
 import json
-from langgraph.graph import StateGraph, END
+from agent_workflow import app  # ✅ Import app from your workflow file
 
 def main():
     # Define a sample test request
@@ -13,11 +13,10 @@ def main():
     print("🚀 Starting LangGraph Workflow Execution...\n")
 
     try:
-        # Stream output node by node to observe full 14-step execution
+        # Stream output node by node to observe full execution
         for event in app.stream(sample_input):
             for node_name, state_update in event.items():
                 print(f"✅ Completed Node: [{node_name}]")
-                # Print keys modified/added by this node
                 print(f"   Updated State Keys: {list(state_update.keys())}\n")
 
         print("🎉 Workflow reached END node successfully!")
@@ -27,3 +26,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    result = app.invoke(initial_state)
