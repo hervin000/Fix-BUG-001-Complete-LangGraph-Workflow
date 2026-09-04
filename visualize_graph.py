@@ -1,4 +1,4 @@
-from LangGraph.agent_workflow import app
+from agent_workflow import app
 
 # Generate ASCII diagram of node connections
 try:
